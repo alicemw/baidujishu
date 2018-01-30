@@ -23,16 +23,12 @@
 
  var tj = document.getElementById('button');
  var output = document.getElementById('aqi-display');
+ var text = document.getElementById('aqi-input');
 
-
- 	tj.onclick = function(){
-	 var text = document.getElementById('aqi-input').value;
-	 if(!!text){
-	 	output.textContent = text;
-	 }else{
-	 	alert("请输入内容！")
-	 }
+ 	function handle(){
+ 		output.textContent = text.value;	
  	}
+ 	tj.onclick = handle;
 
 })();
 
