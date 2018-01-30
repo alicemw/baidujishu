@@ -1,0 +1,134 @@
+/* lesson2
+ * 2018/01/30
+ * */
+* {
+	margin: 0;
+	padding: 0;
+}
+html,body {
+	font-size: 14px;
+	font-family: "microsoft yahei";
+}
+a {
+	text-decoration: none;
+	color: white;
+}
+ul,ol {
+	list-style: none;
+}
+.clear {
+	clear: both;
+}
+body {
+	background: black;
+}
+
+.container {
+	background: #eee;
+	width: 90%;
+	margin: auto;
+}
+nav {
+	background: #222;
+	padding: 20px;
+	height: 50px;
+}
+nav h1,nav ul li  {
+	float: left;
+	margin: 0 10px;
+}
+nav ul {
+	float: right;
+	line-height: 50px;
+	list-style: ethiopic;
+}
+nav h1 img {
+	vertical-align: middle;
+}
+nav ul li:nth-child(4) a{
+	color: #ccc;
+} 
+.content {
+	margin: 20px;
+	background: #fff;
+	padding: 20px;
+	font-size: 18px;
+	box-shadow: 1px 1px 1px 1px #bbb;
+}
+.title {
+	color: #333;
+}
+.picitem {
+	width: 140px;
+	text-align: center;
+	padding: 20px;
+	border: 1px solid #ccc;
+}
+.picitem img {
+	width: 100%;
+}
+table {
+	border-collapse: collapse;
+	width: 100%;
+	margin: auto;
+	text-align: left;
+	border-color:#ccc;
+}
+table tr:nth-child(1){
+	background: #222222;
+	color: white;
+}
+table tr:last-child {
+	background: #ccc;
+}
+table tr td,table tr th {
+	padding: 5px;
+}
+.celan {
+	margin: 20px;
+	background: #fff;
+	padding: 20px;
+	font-size: 18px;
+	box-shadow: 1px 1px 1px 1px #bbb;
+}
+.celan h1 {
+	border-left: 4px solid #ccc;
+	padding: 5px 10px;
+}
+.left {
+	display: inline-block;
+	width: 40%;
+	font-size: 18px;
+	text-align: right;
+	padding: 10px;
+}
+input[type="radio"],input[type="checkbox"] {
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
+	margin: 0 5px;
+}
+input[type='text'],input[type='password'] {
+	height: 20px;
+}
+select {
+	padding: 5px;
+}
+input[type="submit"] {
+	width: 100%;
+	padding: 10px 0;
+	background: deepskyblue;
+	border: none;
+	color: white;
+	font-size: 20px;
+	border-radius: 5px;
+	margin: 5px 0;
+}
+.banquan {
+	background: #000000;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	font-size: 20px;
+	padding: 20px 0;
+}
