@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>js04</title>
+</head>
+<body>
+	<input id="data" type="text" placeholder="请输入..." /> <button id="linput">左输入</button> <button id="rinput">右输入</button>
+	<button id="lremove">左删除</button> <button id="rremove">右删除</button>
+	<p id="render">
+		
+	</p>
+	<script>
+			var rbox = document.getElementById('render');
+			var linput = document.getElementById('linput');
+			var inputbox = document.getElementById('data');
+			var data = [];
+			function getData(i){
+				let value = inputbox.value;
+					
+				switch (i){
+					case 0:
+						if(value == ''){
+							alert('内容不能为空！');
+						}else{							
+							data.unshift(value);
+						}
+						break;
+					case 1:
+						if(value == ''){
+							alert('内容不能为空！');
+						}else{							
+							data.push(value);
+						}
+						
+						break;
+					case 2:
+						data.shift(value);
+						break;
+					case 3:
+						data.pop(value);
+						break;
+					default:
+						data.push(value);
+						break;
+					}
+
+					inputbox.value = "";
+					
+					return data;
+				
+			}
+			
+			function renData(data){
+				rbox.innerHTML = "";
+				data.forEach(function(v){
+					let span = document.createElement('span');
+					span.innerHTML = v;
+					span.style.padding = "5px";
+					span.style.margin = "5px";
+					span.style.background = "red";
+					span.style.color= "white";
+					rbox.appendChild(span);
+				})
+				
+					
+			}
+			var btns = document.getElementsByTagName('button');
+			
+			for(let i =0;i<btns.length;++i){
+				btns[i].onclick = function(){
+					 let datas = getData(i);
+					 renData(datas);
+				};
+			}
+				
+			
+	</script>
+ </body>
+</html>
