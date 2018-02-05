@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>js05</title>
+	<script src="index.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<input id="data" type="text" placeholder="请输入..." /> <button id="linput">左输入</button> <button id="rinput">右输入</button>
+	<button id="lremove">左删除</button> <button id="rremove">右删除</button>
+	<input type="button" id="sort" value="排序">
+	<p id="render">
+		
+	</p>
+	<script>
+			var rbox = document.getElementById('render');
+			var linput = document.getElementById('linput');
+			var inputbox = document.getElementById('data');
+			
+			var data = [];
+			
+			function isNumber(value) {
+			    var patrn = /^[0-9]*$/;
+			    if (patrn.exec(value) == null || value == ""||value<10||value>100) {
+			        alert('请输入10-100');
+			        
+			    } else {
+			        return value;
+			    }
+			}
+			function datasort(){
+				var sort = document.getElementById('sort');
+				sort.onclick = function(){
+					data.sort(function(a,b){
+						return a-b;
+					})
+					renData(data);
+				}
+			}
+			function getData(i){
+				let value = inputbox.value;
+				
+					switch (i){
+					case 0:
+						if(isNumber(value)){
+							if(data.length>=10){
+								alert("数据溢出！");
+							}else{
+								data.unshift(value);
+							}
+						}
+						
+						break;
+					case 1:
+						if(isNumber(value)){
+							if(data.length>=10){
+								alert("数据溢出！");
+							}else{
+								data.push(value);
+							}
+						}
+						break;
+					case 2:
+						data.shift(value);
+						break;
+					case 3:
+						data.pop(value);
+						break;
+					default:
+						data.push(value);
+						break;
+					}
+				
+				
+				
+
+					inputbox.value = "";
+					
+					return data;
+				
+			}
+			
+			function renData(data){
+				rbox.innerHTML = "";
+				data.forEach(function(v){
+					let span = document.createElement('span');
+					span.style.display = 'inline-block';
+					span.style.width = '10px';
+					span.style.height = parseInt(v) +"px";
+					span.style.margin = '2px';
+					span.style.background = "red";
+					
+					rbox.appendChild(span);
+				})
+				var spans = rbox.getElementsByTagName('span');
+				
+					for(let i = 0;i<spans.length;++i){
+						spans[i].onclick = function(){
+							var rminfo = spans[i].innerText;
+								data.splice(i,1);
+								renData(data);
+						}
+					}
+					
+			}
+			function init(){
+				var btns = document.getElementsByTagName('button');
+				datasort();
+				for(let i =0;i<btns.length;++i){
+					btns[i].onclick = function(){
+						 let datas = getData(i);
+						 renData(datas);
+					};
+				}
+			}
+			init();
+		
+				
+
+			
+	</script>
+ </body>
+</html>
