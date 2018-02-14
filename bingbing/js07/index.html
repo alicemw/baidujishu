@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>js07</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		var obj = {
+			name:'a',
+			child:[
+				{
+					name:'b'
+				},
+				{
+					name:'c'
+				}
+			]
+		}
+		function bianli(obj){
+			for(key in obj){
+				if(typeof key == String ){
+					console.log(key)
+				}else{
+					bianli(obj.key);
+				}
+			}	
+		}
+		bianli(obj);
+	</script>
+</body>
+</html>
